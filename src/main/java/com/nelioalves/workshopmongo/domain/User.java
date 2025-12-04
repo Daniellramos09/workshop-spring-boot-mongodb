@@ -1,21 +1,25 @@
 package com.nelioalves.workshopmongo.domain;
 
-import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="user")
 public class User implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 1L;
+
+    @Id
     private String id;
     private String name;
     private String email;
 
-    public User(){
-
+    public User() {
     }
-
 
     public User(String id, String name, String email) {
         super();
@@ -47,6 +51,7 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
 
     @Override
     public boolean equals(Object o) {
