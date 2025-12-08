@@ -29,8 +29,8 @@ public class PostService {
 
     }
 
-    public List<Post> findBYtitle(String text){
-        return repo.findByTitleContainingIgnoreCase(text);
+    public List<Post> findBYTitle(String text){
+        return repo.searchTitle(text);
     }
 
 
