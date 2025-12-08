@@ -25,12 +25,19 @@ public class UserService {
         Optional<User> obj = repo.findById(id);
         // Tenta retornar o objeto, se não existir, lança a exceção
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+
+
     }
 
 
     public User insert(User obj){
         return repo.insert(obj);
 
+    }
+
+    public void delete(String id){
+        findById(id);
+        repo.deleteById(id);
     }
 
 
