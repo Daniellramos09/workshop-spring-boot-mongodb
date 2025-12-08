@@ -18,8 +18,17 @@ public class User implements Serializable {
     private String name;
     private String email;
 
+
+    @DBRef(lazy = true)
+    private List<Post> posts = new ArrayList<>();
+
+
+
     public User() {
+
+
     }
+
 
     public User(String id, String name, String email) {
         super();
@@ -27,6 +36,8 @@ public class User implements Serializable {
         this.name = name;
         this.email = email;
     }
+
+
 
     public String getId() {
         return id;
@@ -52,6 +63,13 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
 
     @Override
     public boolean equals(Object o) {
